@@ -1,0 +1,44 @@
+.service__item {
+  background: #ffffffa6;
+  padding: 1rem;
+  border: 1px solid #faa8fa;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.service__item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: var(--hover-backgroud);
+}
+
+.service__item a {
+  text-decoration: none;
+  background-color: var(--learn-more);
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 10px;
+  margin: 10px;
+  transition: 0.5s;
+}
+.service__item a:hover,
+.service__item a:hover {
+  transform: scale(1.1);
+  color: #fff;
+}
+
+.service__img {
+  width: 100px;
+  height: 100px;
+}
+.service__img img {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.service__item h5 {
+  transition: 0.5s;
+  font-size: 2rem;
+  color: var(--text-color);
+}

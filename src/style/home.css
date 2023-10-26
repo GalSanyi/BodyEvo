@@ -1,0 +1,22 @@
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  font-family: "Garmond", cursive;
+}
+.hero__food-card {
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid #160202;
+}
+.nutrition__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: var(--font-name);
+}
+.section {
+  background-image: url("../assets/images/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
