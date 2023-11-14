@@ -1,19 +1,58 @@
-import React, { useEffect } from "react";
-import { Row, Col, Container } from "reactstrap";
-import { recipes } from "../assets/data/snack";
-import { v4 as uuidv4 } from "uuid";
+import React from "react";
 import "../style/foods.css";
-import Subtitle from "../shared/Subtitle";
+import { Container, Row, Col, Button } from "reactstrap";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getSnack } from "../utils/fetchData";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import noFood from "../assets/images/no-food.jpg";
+import BackToTopButton from "../component/BackToTopButton/BackToTopButton";
 const SnackPage = () => {
+  const [popular, setPopular] = useState([]);
+  const [activeTab, setActiveTab] = useState("instructions");
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const fetchData = async () => {
+      const check = localStorage.getItem("snackPopular");
+      if (check) {
+        setPopular(JSON.parse(check));
+      } else {
+        try {
+          const recipes = await getSnack();
+          localStorage.setItem("snackPopular", JSON.stringify(recipes));
+          setPopular(recipes);
+        } catch (error) {
+          console.error("Error fetching data:", error.message);
+          toast.error("An error occurred while fetching data", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        }
+      }
+    };
+
+    fetchData();
   }, []);
 
+  const handleInstructionsClick = (recipeId) => {
+    setActiveTab(`instructions_${recipeId}`);
+  };
+
+  const handleIngredientsClick = (recipeId) => {
+    setActiveTab(`ingredients_${recipeId}`);
+  };
+
   return (
-    <section className="foods">
+    <section className="section__food">
       <Container>
-        <div className="go__back">
+        <div className="go__back mb-5 mt-5">
           <Link to="/home">
             <span>
               <svg
@@ -27,32 +66,89 @@ const SnackPage = () => {
             </span>
           </Link>
         </div>
+
         <Row>
-          <Subtitle subtitle={"Breakfast :"} />
-          {recipes.map((recipe) => (
-            <React.Fragment key={uuidv4()}>
-              <Col lg="7">
-                <div className="breakfast__img mb-5">
-                  <img src={recipe.image} alt="" />
-                </div>
-              </Col>
-              <Col lg="5" className="d-flex align-items-center">
-                <div className="breakfast__text">
-                  <p className="breakfast__text-title">{recipe.name}</p>
-                  <p className="breakfast__text-paragraph">
-                    {recipe.description}
-                  </p>
-                  <p className="breakfast__text-paragraph">
-                    {recipe.instructions}
-                  </p>
-                  <p className="breakfast__text-paragraph">
-                    {recipe.calories}kcal
-                  </p>
-                </div>
-              </Col>
-            </React.Fragment>
-          ))}
+          {popular &&
+            popular.map((item) => (
+              <React.Fragment key={item.id}>
+                <Col lg="6">
+                  <div className="breakfast__card">
+                    <h4 className="breakfast__title mb-4">{item.title}</h4>
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = noFood;
+                        }}
+                      />
+                    ) : (
+                      <img src={noFood} alt={item.title} />
+                    )}
+                  </div>
+                </Col>
+                <Col lg="6">
+                  <div className="text-center mb-5">
+                    <Button
+                      outline
+                      color="info"
+                      className={`${
+                        activeTab === `instructions_${item.id}` ? "active" : ""
+                      } btn__title`}
+                      onClick={() => handleInstructionsClick(item.id)}
+                    >
+                      Instructions
+                    </Button>
+
+                    <Button
+                      outline
+                      color="info"
+                      className={`${
+                        activeTab === `ingredients_${item.id}` ? "active" : ""
+                      } mr-3`}
+                      onClick={() => handleIngredientsClick(item.id)}
+                    >
+                      Ingredients
+                    </Button>
+                  </div>
+
+                  <div className="recipe-container mb-5">
+                    <h5
+                      className="recipe-summary"
+                      dangerouslySetInnerHTML={{ __html: item.summary }}
+                    ></h5>
+                    <h5
+                      className="recipe-instructions"
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          activeTab === `instructions_${item.id}`
+                            ? item.instructions
+                            : activeTab === `ingredients_${item.id}`
+                            ? item.extendedIngredients
+                                .map((ingredient) => ingredient.original)
+                                .join("<br>")
+                            : "Click on 'Instructions' or 'Ingredients' to view.",
+                      }}
+                    ></h5>
+                  </div>
+                </Col>
+              </React.Fragment>
+            ))}
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </Row>
+        <BackToTopButton />
       </Container>
     </section>
   );

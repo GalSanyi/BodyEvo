@@ -4,6 +4,14 @@
   line-height: 80px;
   background: #0e1633;
 }
+.nav__wrapper .logo {
+  display: flex;
+  width: 110px;
+  height: 80px;
+}
+.nav__wrapper .logo img {
+  width: 100%;
+}
 .menu {
   margin-bottom: 0;
 }
@@ -15,9 +23,7 @@
   color: #fff;
   padding: 11px 20px;
 }
-/* .nav__item:hover {
-  background: #223c50;
-} */
+
 .nav__item.active {
   background: #223c50;
 }

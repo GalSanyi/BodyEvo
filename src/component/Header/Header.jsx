@@ -2,6 +2,7 @@ import "./header.css";
 import React, { useEffect, useState } from "react";
 import { Container, Row, Button } from "reactstrap";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import logo from "../../assets/images/logo.jpg";
 const navLinks = [
   {
     path: "/home",
@@ -31,7 +32,7 @@ const Header = () => {
           <div className="nav__wrapper d-flex align-items-center justify-content-between">
             {/* ================logo satrt=============== */}
             <div className="logo">
-              <img src="" alt="Logo" />
+              <img src={logo} alt="Logo" />
             </div>
             {/* ================logo end================= */}
 

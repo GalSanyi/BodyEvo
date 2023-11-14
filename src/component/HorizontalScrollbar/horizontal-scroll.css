@@ -1,0 +1,32 @@
+.swiper-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+.swiper-button-next:after {
+  content: "next";
+
+  font-size: 16px; /* Розмір шрифту тексту */
+  color: #fff; /* Колір тексту */
+  background-color: #ff2625; /* Колір фону */
+  padding: 10px 20px; /* Відступи */
+  border-radius: 5px; /* Округліть кнопку */
+}
+.swiper-button-next:hover:after {
+  background-color: #ff0000; /* Змініть колір фону при наведенні */
+  color: #fff; /* Змініть колір тексту при наведенні */
+  transform: scale(1.1); /* Збільшення кнопки при наведенні */
+}
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  content: "prev";
+  font-size: 16px; /* Розмір шрифту тексту */
+  color: #fff; /* Колір тексту */
+  background-color: #ff2625; /* Колір фону */
+  padding: 10px 20px; /* Відступи */
+  border-radius: 5px; /* Округліть кнопку */
+}
+.swiper-button-prev:hover:after {
+  background-color: #ff0000; /* Змініть колір фону при наведенні */
+  color: #fff; /* Змініть колір тексту при наведенні */
+  transform: scale(1.1); /* Збільшення кнопки при наведенні */
+}

@@ -7,13 +7,11 @@ import Subtitle from "../shared/Subtitle";
 const Home = () => {
   return (
     <>
-      <section>
-        <h1 className="title text-center">
-          Transform your body, transform your life
-        </h1>
-      </section>
       {/* ================nutrition section start ==================== */}
       <section className="section">
+        <div className="text-center mb-5">
+          <h1 className="title ">Transform your body, transform your life</h1>
+        </div>
         <Container>
           <Row>
             <Subtitle subtitle={"Nutrition :"} />
@@ -21,6 +19,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+
       {/* ================nutrition section end ==================== */}
     </>
   );
