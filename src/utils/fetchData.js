@@ -14,7 +14,7 @@ export const getBreakfast = async () => {
 export const getSnack = async () => {
   try {
     const response = await axios.get(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY2}&number=9&tags=breakfast`
+      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY2}&number=9&tags=snack`
     );
     return response.data.recipes;
   } catch (error) {
