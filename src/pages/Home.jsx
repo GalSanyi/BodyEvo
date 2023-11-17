@@ -3,7 +3,7 @@ import { Container, Row } from "reactstrap";
 import FoodList from "../service/FoodList";
 import "../style/home.css";
 import Subtitle from "../shared/Subtitle";
-
+import ExerciseList from "../service/ExerciseList";
 const Home = () => {
   return (
     <>
@@ -19,8 +19,17 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-
       {/* ================nutrition section end ==================== */}
+
+      {/* ================Exersice section start ==================== */}
+      <section>
+        <Container>
+          <Row>
+            <ExerciseList />
+          </Row>
+        </Container>
+      </section>
+      {/* ================Exersice section end ==================== */}
     </>
   );
 };

@@ -1,0 +1,34 @@
+.exercise__card {
+  width: 600px;
+}
+.exercise__card img {
+  width: 100%;
+}
+.exercise__card p {
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: #333333;
+  display: block;
+  letter-spacing: 2px;
+  text-rendering: optimizeLegibility;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.mySwiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
