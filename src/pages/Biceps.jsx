@@ -78,7 +78,7 @@ const Biceps = () => {
             </svg>
           </span>
         </div>
-        <Subtitle subtitle={"Chest :"} />
+        <Subtitle subtitle={"Biceps :"} />
         <Row>
           {loading ? (
             <Dna

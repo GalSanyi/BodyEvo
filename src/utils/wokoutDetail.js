@@ -34,7 +34,7 @@ export const getBiceps = async () => {
 
     return response.data;
   } catch (error) {
-    console.error("Error fetching chest exercises:", error.message);
+    console.error("Error fetching biceps exercises:", error.message);
     throw error;
   }
 };
