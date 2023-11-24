@@ -4,12 +4,10 @@ import ExerciseCard from "./ExerciseCard";
 import { exercises } from "../utils/exercises";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-// import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
 const ExerciseList = () => {
   return (
@@ -33,9 +31,10 @@ const ExerciseList = () => {
         className="mySwiper"
       >
         {exercises.map((exercise) => (
-          <SwiperSlide key={exercise.id}>
-            <ExerciseCard exercise={exercise} />
-          </SwiperSlide>
+        
+            <SwiperSlide key={exercise.id}>
+              <ExerciseCard exercise={exercise} />
+            </SwiperSlide>
         ))}
       </Swiper>
     </div>

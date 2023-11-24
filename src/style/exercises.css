@@ -1,0 +1,38 @@
+.section__workout {
+  background: var(--background-section);
+}
+
+.exercise__instructions {
+  height: 160px;
+  overflow-y: hidden;
+}
+
+.exercise__instructions.exercise__more {
+  height: auto;
+  overflow-y: visible;
+}
+
+.showMoreButton + .exercise__instructions {
+  height: auto; /* Змініть висоту за необхідністю */
+}
+.exercise__instructions {
+  font-family: var(--font-text);
+  color: var(--font-text-color);
+  color: #7a3e48;
+  line-height: 2rem;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+.instruction__title {
+  font-family: var(--font-text);
+  color: var(--font-text-color);
+  font-size: 2rem;
+  font-weight: 700;
+}
+.instruction__equipment {
+  font-family: var(--font-text);
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 19px;
+  color: var(--color-equipment);
+}

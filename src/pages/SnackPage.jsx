@@ -1,40 +1,45 @@
-import React from "react";
-import "../style/foods.css";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "reactstrap";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getSnack } from "../utils/fetchData";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import noFood from "../assets/images/no-food.jpg";
 import BackToTopButton from "../component/BackToTopButton/BackToTopButton";
+import { Dna } from "react-loader-spinner";
+import Subtitle from "../shared/Subtitle";
+
 const SnackPage = () => {
   const [popular, setPopular] = useState([]);
   const [activeTab, setActiveTab] = useState("instructions");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const check = localStorage.getItem("snackPopular");
-      if (check) {
-        setPopular(JSON.parse(check));
-      } else {
-        try {
+      setLoading(true);
+      try {
+        const check = localStorage.getItem("snackPopular");
+        if (check) {
+          setPopular(JSON.parse(check));
+        } else {
           const recipes = await getSnack();
           localStorage.setItem("snackPopular", JSON.stringify(recipes));
           setPopular(recipes);
-        } catch (error) {
-          console.error("Error fetching data:", error.message);
-          toast.error("An error occurred while fetching data", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
         }
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+        toast.error("An error occurred while fetching data", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -66,9 +71,18 @@ const SnackPage = () => {
             </span>
           </Link>
         </div>
-
+        <Subtitle subtitle={"Snack :"} />
         <Row>
-          {popular &&
+          {loading ? (
+            <Dna
+              visible={true}
+              height="180"
+              width="180"
+              ariaLabel="dna-loading"
+              wrapperStyle={{}}
+              wrapperClass="dna-wrapper"
+            />
+          ) : (
             popular.map((item) => (
               <React.Fragment key={item.id}>
                 <Col lg="6">
@@ -134,7 +148,8 @@ const SnackPage = () => {
                   </div>
                 </Col>
               </React.Fragment>
-            ))}
+            ))
+          )}
           <ToastContainer
             position="top-right"
             autoClose={5000}

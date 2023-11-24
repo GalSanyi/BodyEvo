@@ -11,9 +11,10 @@
   border-radius: 2rem;
 }
 .breakfast__title {
+  font-family: var(--font-text);
+  color: var(--font-text-color);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--text-color);
 }
 .active {
   color: #fff !important;
@@ -26,6 +27,8 @@
   margin: 0 auto;
 }
 .recipe-summary {
+  font-family: var(--font-text);
+  color: var(--font-text-color);
   color: #7a3e48;
   line-height: 2rem;
   font-size: 1.3rem;

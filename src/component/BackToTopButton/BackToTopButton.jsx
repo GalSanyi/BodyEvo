@@ -1,24 +1,24 @@
 import React from "react";
+import "../BackToTopButton/back-to-top-button.css";
 import { useEffect, useState } from "react";
 const BackToTopButton = () => {
   const [backtoBotton, setBackToButton] = useState(false);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        setBackToButton(true);
-      } else {
-        setBackToButton(false);
-      }
+      setBackToButton(window.scrollY > 100);
     });
   }, []);
+
   const scrollUp = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+
   return (
-    <div>
+    <div className="back-button">
       {backtoBotton && (
         <button className="food__arrow" onClick={scrollUp}>
           <span>

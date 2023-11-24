@@ -1,4 +1,5 @@
 import React from "react";
+import BackToTopButton from "../component/BackToTopButton/BackToTopButton";
 import "../style/foods.css";
 import { Container, Row, Col, Button } from "reactstrap";
 import { useEffect, useState } from "react";
@@ -7,33 +8,39 @@ import { getDinner } from "../utils/fetchData";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import noFood from "../assets/images/no-food.jpg";
+import Subtitle from "../shared/Subtitle";
+import { Dna } from "react-loader-spinner";
+
 const BreakfastPage = () => {
   const [popular, setPopular] = useState([]);
   const [activeTab, setActiveTab] = useState("instructions");
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
-      const check = localStorage.getItem("dinnerPopular");
-      if (check) {
-        setPopular(JSON.parse(check));
-      } else {
-        try {
+      setLoading(true);
+      try {
+        const check = localStorage.getItem("dinnerPopular");
+        if (check) {
+          setPopular(JSON.parse(check));
+        } else {
           const recipes = await getDinner();
           localStorage.setItem("dinnerPopular", JSON.stringify(recipes));
           setPopular(recipes);
-        } catch (error) {
-          console.error("Error fetching data:", error.message);
-          toast.error(" Request failed with status code 402", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
         }
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+        toast.error(" Request failed with status code 402", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -65,9 +72,18 @@ const BreakfastPage = () => {
             </span>
           </Link>
         </div>
-
+        <Subtitle subtitle={"Dinner :"} />
         <Row>
-          {popular &&
+          {loading ? (
+            <Dna
+              visible={true}
+              height="180"
+              width="180"
+              ariaLabel="dna-loading"
+              wrapperStyle={{}}
+              wrapperClass="dna-wrapper"
+            />
+          ) : (
             popular.map((item) => (
               <React.Fragment key={item.id}>
                 <Col lg="6">
@@ -129,7 +145,8 @@ const BreakfastPage = () => {
                   </div>
                 </Col>
               </React.Fragment>
-            ))}
+            ))
+          )}
           <ToastContainer
             position="top-right"
             autoClose={5000}
@@ -143,6 +160,7 @@ const BreakfastPage = () => {
             theme="dark"
           />
         </Row>
+        <BackToTopButton />
       </Container>
     </section>
   );

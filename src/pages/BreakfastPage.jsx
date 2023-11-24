@@ -1,40 +1,44 @@
-import React from "react";
-import "../style/foods.css";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "reactstrap";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getBreakfast } from "../utils/fetchData";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import noFood from "../assets/images/no-food.jpg";
 import BackToTopButton from "../component/BackToTopButton/BackToTopButton";
+import { Dna } from "react-loader-spinner";
+import Subtitle from "../shared/Subtitle";
+
 const BreakfastPage = () => {
   const [popular, setPopular] = useState([]);
   const [activeTab, setActiveTab] = useState("instructions");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const check = localStorage.getItem("breakfastPopular");
-      if (check) {
-        setPopular(JSON.parse(check));
-      } else {
-        try {
+      try {
+        const check = localStorage.getItem("breakfastPopular");
+        if (check) {
+          setPopular(JSON.parse(check));
+        } else {
           const recipes = await getBreakfast();
           localStorage.setItem("breakfastPopular", JSON.stringify(recipes));
           setPopular(recipes);
-        } catch (error) {
-          console.error("Error fetching data:", error.message);
-          toast.error("An error occurred while fetching data", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
         }
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+        toast.error("An error occurred while fetching data", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -66,9 +70,18 @@ const BreakfastPage = () => {
             </span>
           </Link>
         </div>
-
+        <Subtitle subtitle={"Сніданок :"} />
         <Row>
-          {popular &&
+          {loading ? (
+            <Dna
+              visible={true}
+              height="180"
+              width="180"
+              ariaLabel="dna-loading"
+              wrapperStyle={{}}
+              wrapperClass="dna-wrapper"
+            />
+          ) : (
             popular.map((item) => (
               <React.Fragment key={item.id}>
                 <Col lg="6">
@@ -98,7 +111,7 @@ const BreakfastPage = () => {
                       } btn__title`}
                       onClick={() => handleInstructionsClick(item.id)}
                     >
-                      Instructions
+                      Інструкції
                     </Button>
 
                     <Button
@@ -109,15 +122,15 @@ const BreakfastPage = () => {
                       } mr-3`}
                       onClick={() => handleIngredientsClick(item.id)}
                     >
-                      Ingredients
+                      Інгредієнти
                     </Button>
                   </div>
 
                   <div className="recipe-container mb-5">
-                    <h5
+                    <p
                       className="recipe-summary"
                       dangerouslySetInnerHTML={{ __html: item.summary }}
-                    ></h5>
+                    ></p>
                     <h5
                       className="recipe-instructions"
                       dangerouslySetInnerHTML={{
@@ -128,13 +141,14 @@ const BreakfastPage = () => {
                             ? item.extendedIngredients
                                 .map((ingredient) => ingredient.original)
                                 .join("<br>")
-                            : "Click on 'Instructions' or 'Ingredients' to view.",
+                            : "Натисніть на 'Інструкції' або 'Інгредієнти', щоб переглянути.",
                       }}
                     ></h5>
                   </div>
                 </Col>
               </React.Fragment>
-            ))}
+            ))
+          )}
           <ToastContainer
             position="top-right"
             autoClose={5000}

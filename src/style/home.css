@@ -1,11 +1,10 @@
 .title {
   font-size: 3rem;
-  font-weight: bold;
   color: #fff;
   background: var(--learn-more);
   text-transform: uppercase;
-  font-family: "Garmond", cursive;
-  display: inline; /* Додайте цей рядок для ефекту на всю довжину тексту */
+  font-family: var(--font-name), cursive;
+  display: inline;
 }
 
 .hero__food-card {
@@ -22,4 +21,7 @@
   background-image: url("../assets/images/hero.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+.exersices {
+  background: var(--text-color);
 }

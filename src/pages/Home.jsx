@@ -22,7 +22,7 @@ const Home = () => {
       {/* ================nutrition section end ==================== */}
 
       {/* ================Exersice section start ==================== */}
-      <section>
+      <section className="exersices" id="exercise">
         <Container>
           <Row>
             <ExerciseList />
