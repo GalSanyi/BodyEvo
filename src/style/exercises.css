@@ -1,7 +1,10 @@
 .section__workout {
   background: var(--background-section);
 }
-
+.exercise__img img {
+  width: 360px;
+  height: 360px;
+}
 .exercise__instructions {
   height: 160px;
   overflow-y: hidden;

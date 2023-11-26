@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Col, Container, Row } from "reactstrap";
-import { chestImg } from "../utils/workout";
+import { bicepsImg } from "../utils/workout";
 import Subtitle from "../shared/Subtitle";
 import { getBiceps } from "../utils/wokoutDetail";
 import { Dna } from "react-loader-spinner";
@@ -94,7 +94,7 @@ const Biceps = () => {
               <React.Fragment key={index}>
                 <Col lg="6" className="pr-5">
                   <div className="mb-4">
-                    <img src={chestImg[index].filename} alt="" />
+                    <img src={bicepsImg[index].filename} alt="" />
                   </div>
                 </Col>
                 <Col lg="6" className="pl-5 mb-5">

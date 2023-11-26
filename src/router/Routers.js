@@ -15,6 +15,7 @@ import BicepsPage from "../pages/Biceps";
 import TricrpsPage from "../pages/Tricrps";
 import LegsPage from "../pages/Legs";
 import BackPage from "../pages/Back";
+import CalvesPage from "../pages/Calves";
 const Routers = () => {
   return (
     <Routes>
@@ -34,6 +35,7 @@ const Routers = () => {
       <Route path="/exercise/triceps" element={<TricrpsPage />} />
       <Route path="/exercise/legs" element={<LegsPage />} />
       <Route path="/exercise/back" element={<BackPage />} />
+      <Route path="/exercise/calves" element={<CalvesPage />} />
     </Routes>
   );
 };

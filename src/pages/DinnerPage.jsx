@@ -11,7 +11,7 @@ import noFood from "../assets/images/no-food.jpg";
 import Subtitle from "../shared/Subtitle";
 import { Dna } from "react-loader-spinner";
 
-const BreakfastPage = () => {
+const DinnerPage = () => {
   const [popular, setPopular] = useState([]);
   const [activeTab, setActiveTab] = useState("instructions");
   const [loading, setLoading] = useState(false);
@@ -166,4 +166,4 @@ const BreakfastPage = () => {
   );
 };
 
-export default BreakfastPage;
+export default DinnerPage;

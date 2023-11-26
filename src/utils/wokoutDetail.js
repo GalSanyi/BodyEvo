@@ -38,3 +38,22 @@ export const getBiceps = async () => {
     throw error;
   }
 };
+export const getTriceps = async () => {
+  try {
+    const response = await axios.get(
+      `https://api.api-ninjas.com/v1/exercises?muscle=triceps`,
+      {
+        headers: { "X-Api-Key": process.env.REACT_APP_API_KEY },
+      }
+    );
+
+    if (response.status !== 200) {
+      throw new Error(`Unexpected response status: ${response.status}`);
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching triceps exercises:", error.message);
+    throw error;
+  }
+};
