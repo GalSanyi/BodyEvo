@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
+import { useEffect, useState, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Col, Container, Row } from "reactstrap";
-import { calvesImg } from "../utils/workout";
+import { gluteImg } from "../utils/workout";
 import Subtitle from "../shared/Subtitle";
-import { getCalves } from "../utils/wokoutDetail";
+import { getGlute } from "../utils/wokoutDetail";
 import { Dna } from "react-loader-spinner";
 import BackToTopButton from "../component/BackToTopButton/BackToTopButton";
 import "../style/exercises.css";
-
-const Calves = () => {
+const Glute = () => {
   const [exercise, setExercise] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showMoreText, setShowMoreText] = useState(false);
@@ -18,7 +18,7 @@ const Calves = () => {
   useEffect(() => {
     const fetchExercises = async () => {
       try {
-        const response = await getCalves();
+        const response = await getGlute();
         console.log(response);
         setExercise(response);
       } catch (error) {
@@ -78,7 +78,7 @@ const Calves = () => {
             </svg>
           </span>
         </div>
-        <Subtitle subtitle={"Calves :"} />
+        <Subtitle subtitle={"Glutes :"} />
         <Row>
           {loading ? (
             <Dna
@@ -94,7 +94,7 @@ const Calves = () => {
               <React.Fragment key={index}>
                 <Col lg="6" className="pr-5">
                   <div className="mb-4 exercise__img">
-                    <img src={calvesImg[index].filename} alt="exercise" />
+                    <img src={gluteImg[index].filename} alt="exercise" />
                   </div>
                 </Col>
                 <Col lg="6" className="pl-5 mb-5">
@@ -141,4 +141,4 @@ const Calves = () => {
   );
 };
 
-export default Calves;
+export default Glute;

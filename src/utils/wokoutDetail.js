@@ -57,3 +57,42 @@ export const getTriceps = async () => {
     throw error;
   }
 };
+export const getCalves = async () => {
+  try {
+    const response = await axios.get(
+      `https://api.api-ninjas.com/v1/exercises?muscle=calves`,
+      {
+        headers: { "X-Api-Key": process.env.REACT_APP_API_KEY },
+      }
+    );
+
+    if (response.status !== 200) {
+      throw new Error(`Unexpected response status: ${response.status}`);
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching triceps exercises:", error.message);
+    throw error;
+  }
+};
+
+export const getGlute = async () => {
+  try {
+    const response = await axios.get(
+      `https://api.api-ninjas.com/v1/exercises?muscle=glutes`,
+      {
+        headers: { "X-Api-Key": process.env.REACT_APP_API_KEY },
+      }
+    );
+
+    if (response.status !== 200) {
+      throw new Error(`Unexpected response status: ${response.status}`);
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching triceps exercises:", error.message);
+    throw error;
+  }
+};

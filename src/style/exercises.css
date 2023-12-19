@@ -1,3 +1,11 @@
+.go__back span svg {
+  transition: 0.4s;
+  cursor: pointer;
+}
+.go__back span svg:hover {
+  transform: scale(1.1);
+  fill: var(--hover-backgroud);
+}
 .section__workout {
   background: var(--background-section);
 }

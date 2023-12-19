@@ -33,6 +33,31 @@ import PushUpsCloseTricepsPosition from "../assets/triceps-img/Push-Ups - Close 
 import KneelingCableTricepsExtension from "../assets/triceps-img/kneeling-cable-triceps.gif";
 import SingleArmCableTricepsExtension from "../assets/triceps-img/Single-arm cable triceps extension.gif";
 
+// calves-img.js
+import BalanceBoard from "../assets/calves-img/Balance Board.gif";
+import BarbellSeatedCalfRaise from "../assets/calves-img/Barbell Seated Calf Raise.gif";
+import CalfPressOnLegPressMachine from "../assets/calves-img/Calf Press On The Leg Press Machine.gif";
+import CalfPress from "../assets/calves-img/Calf Press.gif";
+import StandingCalfRaises from "../assets/calves-img/Standing Calf Raises.gif";
+import RockingStandingCalfRaise from "../assets/calves-img/Rocking Standing Calf Raise.gif";
+import SeatedCalfRaise from "../assets/calves-img/Seated Calf Raise.gif";
+import StandingBarbellCalfRaise from "../assets/calves-img/Standing barbell calf raise.gif";
+import SmithMachineCalfRaise from "../assets/calves-img/Smith Machine Calf Raise.gif";
+import WeightedDonkeyCalfRaise from "../assets/calves-img/Weighted donkey calf raise.gif";
+
+// glute-img
+import BarbellGlute from "../assets/glute-img/Barbell glute bridge.gif";
+import BarbellHipThrust from "../assets/glute-img/Barbell Hip Thrust.gif";
+import SingleLegCableHipExtension from "../assets/glute-img/Single-leg cable hip extension.gif";
+import GluteBridge from "../assets/glute-img/Glute bridge.gif";
+import SingleLegGluteBridge from "../assets/glute-img/Single-leg glute bridge.gif";
+import StepUpWithKneeRaise from "../assets/glute-img/Step-up with knee raise.gif";
+import KettlebellThruster from "../assets/glute-img/Kettlebell thruster.gif";
+import KneelingSquat from "../assets/glute-img/Kneeling Squat.gif";
+import FlutterKicks from "../assets/glute-img/Flutter Kicks.gif";
+import GluteKickback from "../assets/glute-img/Glute Kickback.gif";
+
+// chest-img
 const chestImgFiles = [
   DumbbellBenchPress,
   Pushups,
@@ -83,6 +108,41 @@ const tricepsImgFiles = [
 ];
 
 export const tricepsImg = tricepsImgFiles.map((filename, index) => ({
+  id: index + 1,
+  filename,
+}));
+
+const calvesImgFiles = [
+  BalanceBoard,
+  BarbellSeatedCalfRaise,
+  CalfPressOnLegPressMachine,
+  CalfPress,
+  StandingCalfRaises,
+  RockingStandingCalfRaise,
+  SeatedCalfRaise,
+  StandingBarbellCalfRaise,
+  SmithMachineCalfRaise,
+  WeightedDonkeyCalfRaise,
+];
+
+export const calvesImg = calvesImgFiles.map((filename, index) => ({
+  id: index + 1,
+  filename,
+}));
+
+const gluteImgFiles = [
+  BarbellGlute,
+  BarbellHipThrust,
+  FlutterKicks,
+  GluteBridge,
+  GluteKickback,
+  KettlebellThruster,
+  KneelingSquat,
+  SingleLegCableHipExtension,
+  SingleLegGluteBridge,
+  StepUpWithKneeRaise,
+];
+export const gluteImg = gluteImgFiles.map((filename, index) => ({
   id: index + 1,
   filename,
 }));

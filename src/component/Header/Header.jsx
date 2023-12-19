@@ -2,7 +2,7 @@ import "./header.css";
 import React, { useEffect, useState } from "react";
 import { Container, Row, Button } from "reactstrap";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../assets/images/1.png";
 const navLinks = [
   {
     path: "/home",
