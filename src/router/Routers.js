@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-
+import { Dna } from "react-loader-spinner";
 const Home = lazy(() => import("../pages/Home"));
 const Community = lazy(() => import("../pages/Community"));
 const About = lazy(() => import("../pages/About"));
@@ -18,6 +18,8 @@ const LegsPage = lazy(() => import("../pages/Legs"));
 const BackPage = lazy(() => import("../pages/Back"));
 const CalvesPage = lazy(() => import("../pages/Calves"));
 const GlutesPage = lazy(() => import("../pages/Glute"));
+const AbsPage = lazy(() => import("../pages/Abs"));
+const ForearmPage = lazy(() => import("../pages/Forearm"));
 
 const Routers = () => {
   return (
@@ -26,7 +28,18 @@ const Routers = () => {
       <Route
         path="/home"
         element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense
+            fallback={
+              <Dna
+                visible={true}
+                height="180"
+                width="180"
+                ariaLabel="dna-loading"
+                wrapperStyle={{}}
+                wrapperClass="dna-wrapper"
+              />
+            }
+          >
             <Home />
           </Suspense>
         }
@@ -156,6 +169,22 @@ const Routers = () => {
         element={
           <Suspense fallback={<div>Loading...</div>}>
             <GlutesPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/exercise/abs"
+        element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <AbsPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/exercise/forearm"
+        element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <ForearmPage />
           </Suspense>
         }
       />

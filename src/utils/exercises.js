@@ -7,7 +7,6 @@ import BackImage from "../assets/images/Back.jpg";
 import GluteImage from "../assets/images/glute.jpg";
 import AbsImage from "../assets/images/Abs.jpg";
 import CalvesImage from "../assets/images/Calves.jpg";
-import ForearmFlexorsImage from "../assets/images/ForearmFlexors.jpg";
 import ForearmExtensorsImage from "../assets/images/ForearmExtensors.jpg";
 export const exercises = [
   { id: 1, image: chestImage, muscleGroup: "Chest" },
@@ -19,6 +18,5 @@ export const exercises = [
   { id: 7, image: GluteImage, muscleGroup: "Glute" },
   { id: 8, image: AbsImage, muscleGroup: "Abs" },
   { id: 9, image: CalvesImage, muscleGroup: "Calves" },
-  { id: 10, image: ForearmFlexorsImage, muscleGroup: "Forearm Flexors" },
-  { id: 11, image: ForearmExtensorsImage, muscleGroup: "Forearm Extensors" },
+  { id: 10, image: ForearmExtensorsImage, muscleGroup: "Forearm" },
 ];

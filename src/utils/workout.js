@@ -57,6 +57,41 @@ import KneelingSquat from "../assets/glute-img/Kneeling Squat.gif";
 import FlutterKicks from "../assets/glute-img/Flutter Kicks.gif";
 import GluteKickback from "../assets/glute-img/Glute Kickback.gif";
 
+// abs-img.js
+import LandmineTwistImg from "../assets/abs-img/Landmine twist.gif";
+import ElbowPlankImg from "../assets/abs-img/Elbow plank.gif";
+import BottomsUpImg from "../assets/abs-img/Bottoms Up.gif";
+import SuspendedAbFallOutImg from "../assets/abs-img/Suspended ab fall-out.gif";
+import DumbbellVSitCrossJabImg from "../assets/abs-img/Dumbbell V-Sit Cross Jab.gif";
+import StandingCableLowToHighTwistImg from "../assets/abs-img/Standing cable low-to-high twist.gif";
+import DumbbellSpellCasterImg from "../assets/abs-img/Dumbbell spell caster.gif";
+import DeclineReverseCrunchImg from "../assets/abs-img/Decline reverse crunch.gif";
+import SpiderCrawlImg from "../assets/abs-img/Spider crawl.gif";
+import CocoonsImg from "../assets/abs-img/Cocoons.gif";
+
+// forearm-img
+import RickshawCarry from "../assets/forearm-img/Rickshaw Carry.gif";
+import PalmsDownWristCurlOverBench from "../assets/forearm-img/Palms-down wrist curl over bench.gif";
+import StraightBarWristRollUp from "../assets/forearm-img/Straight-bar wrist roll-up.gif";
+import DumbbellFarmersWalk from "../assets/forearm-img/Dumbbell farmer's walk.gif";
+import PalmsUpWristCurlOverBench from "../assets/forearm-img/Palms-up wrist curl over bench.gif";
+import StandingBehindTheBackWristCurl from "../assets/forearm-img/Standing behind-the-back wrist curl.gif";
+import SeatedFingerCurl from "../assets/forearm-img/Seated finger curl.gif";
+import SeatedTwoArmPalmsUpLowPulleyWristCurl from "../assets/forearm-img/eated Two-Arm Palms-Up Low-Pulley Wrist Curl.gif";
+import WristRoller from "../assets/forearm-img/Wrist Roller.gif";
+import SeatedOneArmDumbbellPalmsUpWristCurl from "../assets/forearm-img/Seated One-Arm Dumbbell Palms-Up Wrist Curl.gif";
+// back
+import TBarRowWithHandle from "../assets/back-img/T-Bar Row with Handle.gif";
+import ReverseGripBentOverRow from "../assets/back-img/Reverse-grip bent-over row.gif";
+import OneArmDumbbellRow from "../assets/back-img/One-Arm Dumbbell Row.gif";
+import OneArmLongBarRow from "../assets/back-img/One-Arm Long Bar Row.gif";
+import TBarRow from "../assets/back-img/T-Bar Row.gif";
+import BentOverTwoArmLongBarRow from "../assets/back-img/Bent Over Two-Arm Long Bar Row.gif";
+import AlternatingSitThroughWithCrunch from "../assets/back-img/Alternating sit-through with crunch.gif";
+import Rower from "../assets/back-img/Rower.gif";
+import SeatedCableRows from "../assets/back-img/Seated Cable Rows.gif";
+import InclineDumbbellRow from "../assets/back-img/Incline dumbbell row.gif";
+
 // chest-img
 const chestImgFiles = [
   DumbbellBenchPress,
@@ -143,6 +178,62 @@ const gluteImgFiles = [
   StepUpWithKneeRaise,
 ];
 export const gluteImg = gluteImgFiles.map((filename, index) => ({
+  id: index + 1,
+  filename,
+}));
+// Create an array with the exercise image filenames
+const absImgFiles = [
+  LandmineTwistImg,
+  ElbowPlankImg,
+  BottomsUpImg,
+  SuspendedAbFallOutImg,
+  DumbbellVSitCrossJabImg,
+  StandingCableLowToHighTwistImg,
+  DumbbellSpellCasterImg,
+  DeclineReverseCrunchImg,
+  SpiderCrawlImg,
+  CocoonsImg,
+];
+
+// Create an array of exercise objects with id and filename
+export const absImg = absImgFiles.map((filename, index) => ({
+  id: index + 1,
+  filename,
+}));
+
+// forearm
+const forearmImgFiles = [
+  RickshawCarry,
+  PalmsDownWristCurlOverBench,
+  StraightBarWristRollUp,
+  DumbbellFarmersWalk,
+  PalmsUpWristCurlOverBench,
+  StandingBehindTheBackWristCurl,
+  SeatedFingerCurl,
+  SeatedTwoArmPalmsUpLowPulleyWristCurl,
+  WristRoller,
+  SeatedOneArmDumbbellPalmsUpWristCurl,
+];
+
+export const forearmImg = forearmImgFiles.map((filename, index) => ({
+  id: index + 1,
+  filename,
+}));
+
+// back
+const exercisesImgFiles = [
+  TBarRowWithHandle,
+  ReverseGripBentOverRow,
+  OneArmDumbbellRow,
+  OneArmLongBarRow,
+  TBarRow,
+  BentOverTwoArmLongBarRow,
+  AlternatingSitThroughWithCrunch,
+  Rower,
+  SeatedCableRows,
+  InclineDumbbellRow,
+];
+export const backImg = exercisesImgFiles.map((filename, index) => ({
   id: index + 1,
   filename,
 }));

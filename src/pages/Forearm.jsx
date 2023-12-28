@@ -3,14 +3,13 @@ import { useEffect, useState, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Col, Container, Row } from "reactstrap";
-import { backImg } from "../utils/workout";
+import { forearmImg } from "../utils/workout";
 import Subtitle from "../shared/Subtitle";
-import { getBack } from "../utils/wokoutDetail";
+import { getForearm } from "../utils/wokoutDetail";
 import { Dna } from "react-loader-spinner";
 import BackToTopButton from "../component/BackToTopButton/BackToTopButton";
 import "../style/exercises.css";
-
-const Back = () => {
+const Forearm = () => {
   const [exercise, setExercise] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showMoreText, setShowMoreText] = useState(false);
@@ -19,7 +18,7 @@ const Back = () => {
   useEffect(() => {
     const fetchExercises = async () => {
       try {
-        const response = await getBack();
+        const response = await getForearm();
         console.log(response);
         setExercise(response);
       } catch (error) {
@@ -95,7 +94,7 @@ const Back = () => {
               <React.Fragment key={index}>
                 <Col lg="6" className="pr-5">
                   <div className="mb-4 exercise__img">
-                    <img src={backImg[index].filename} alt="exercise" />
+                    <img src={forearmImg[index].filename} alt="exercise" />
                   </div>
                 </Col>
                 <Col lg="6" className="pl-5 mb-5">
@@ -142,4 +141,4 @@ const Back = () => {
   );
 };
 
-export default Back;
+export default Forearm;
