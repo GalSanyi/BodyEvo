@@ -70,7 +70,7 @@ const BreakfastPage = () => {
             </span>
           </Link>
         </div>
-        <Subtitle subtitle={"Сніданок :"} />
+        <Subtitle subtitle={"Breakfast :"} />
         <Row>
           {loading ? (
             <Dna
@@ -111,7 +111,7 @@ const BreakfastPage = () => {
                       } btn__title`}
                       onClick={() => handleInstructionsClick(item.id)}
                     >
-                      Інструкції
+                      Instructions
                     </Button>
 
                     <Button
@@ -122,7 +122,7 @@ const BreakfastPage = () => {
                       } mr-3`}
                       onClick={() => handleIngredientsClick(item.id)}
                     >
-                      Інгредієнти
+                      Ingredients
                     </Button>
                   </div>
 
@@ -141,7 +141,7 @@ const BreakfastPage = () => {
                             ? item.extendedIngredients
                                 .map((ingredient) => ingredient.original)
                                 .join("<br>")
-                            : "Натисніть на 'Інструкції' або 'Інгредієнти', щоб переглянути.",
+                            : "Click on 'Instructions' or 'Ingredients' to view.",
                       }}
                     ></h5>
                   </div>

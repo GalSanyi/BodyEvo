@@ -154,3 +154,60 @@ export const getForearm = async () => {
     throw error;
   }
 };
+export const getShoulder = async () => {
+  try {
+    const response = await axios.get(
+      `https://api.api-ninjas.com/v1/exercises?muscle=neck`,
+      {
+        headers: { "X-Api-Key": process.env.REACT_APP_API_KEY },
+      }
+    );
+
+    if (response.status !== 200) {
+      throw new Error(`Unexpected response status: ${response.status}`);
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching triceps exercises:", error.message);
+    throw error;
+  }
+};
+export const getLegs = async () => {
+  try {
+    const response = await axios.get(
+      `https://api.api-ninjas.com/v1/exercises?muscle=hamstrings`,
+      {
+        headers: { "X-Api-Key": process.env.REACT_APP_API_KEY },
+      }
+    );
+
+    if (response.status !== 200) {
+      throw new Error(`Unexpected response status: ${response.status}`);
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching triceps exercises:", error.message);
+    throw error;
+  }
+};
+export const getLats = async () => {
+  try {
+    const response = await axios.get(
+      `https://api.api-ninjas.com/v1/exercises?muscle=lats`,
+      {
+        headers: { "X-Api-Key": process.env.REACT_APP_API_KEY },
+      }
+    );
+
+    if (response.status !== 200) {
+      throw new Error(`Unexpected response status: ${response.status}`);
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching triceps exercises:", error.message);
+    throw error;
+  }
+};

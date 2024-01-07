@@ -92,7 +92,7 @@ const Chest = () => {
             exercise.map((exerciseItem, index) => (
               <React.Fragment key={index}>
                 <Col lg="6" className="pr-5">
-                  <div className="mb-4">
+                  <div className="mb-4 exercise__img">
                     <img src={chestImg[index].filename} alt="" />
                   </div>
                 </Col>

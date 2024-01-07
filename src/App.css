@@ -7,6 +7,7 @@
   --color-equipment: #5a5a5a;
   --foods-background: #52d4186b;
   --hover-backgroud: #347fc5d7;
+  --button-showeMore: #3983ba;
   --background-section: linear-gradient(to right, #007bff63, #f8f9fa);
   --hero-title: "Garamond";
   --font-text: "Open Sans";
@@ -84,4 +85,5 @@ li {
   font-weight: 700;
   font-family: "Oswald";
   padding: 2rem 0.5rem;
+  color: var(--learn-more);
 }

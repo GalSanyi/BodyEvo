@@ -10,7 +10,7 @@ import CalvesImage from "../assets/images/Calves.jpg";
 import ForearmExtensorsImage from "../assets/images/ForearmExtensors.jpg";
 export const exercises = [
   { id: 1, image: chestImage, muscleGroup: "Chest" },
-  { id: 2, image: shoulderImg, muscleGroup: "Shoulder" },
+  { id: 2, image: shoulderImg, muscleGroup: "Lats" },
   { id: 3, image: BicepsImage, muscleGroup: "Biceps" },
   { id: 4, image: TricepsImage, muscleGroup: "Triceps" },
   { id: 5, image: LegsImage, muscleGroup: "Legs" },

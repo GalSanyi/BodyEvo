@@ -12,6 +12,7 @@
 .exercise__img img {
   width: 360px;
   height: 360px;
+  border-radius: 5%;
 }
 .exercise__instructions {
   height: 160px;
@@ -46,4 +47,20 @@
   font-size: 1.2rem;
   line-height: 19px;
   color: var(--color-equipment);
+}
+.showMoreButton {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--button-showeMore);
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1.3rem;
+  cursor: pointer;
+  transition: all0.5s ease;
+}
+
+.showMoreButton:hover {
+  color: #fff;
+  background-color: var(--button-showeMore);
 }

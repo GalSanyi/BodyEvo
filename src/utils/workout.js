@@ -92,6 +92,29 @@ import Rower from "../assets/back-img/Rower.gif";
 import SeatedCableRows from "../assets/back-img/Seated Cable Rows.gif";
 import InclineDumbbellRow from "../assets/back-img/Incline dumbbell row.gif";
 
+// legs-img
+import BarbellDeadlift from "../assets/legs-img/Barbell Deadlift.webp";
+import RomanianDeadliftWithDumbbells from "../assets/legs-img/Romanian Deadlift With Dumbbells.gif";
+import CleanDeadlift from "../assets/legs-img/Clean Deadlift.gif";
+import SumoDeadlift from "../assets/legs-img/Sumo deadlift.gif";
+import RomanianDeadliftFromDeficit from "../assets/legs-img/Romanian Deadlift from Deficit.gif";
+import PowerSnatch from "../assets/legs-img/Power Snatch.gif";
+import PowerCleanFromBlocks from "../assets/legs-img/Power Clean from Blocks.gif";
+import NaturalGluteHamRaise from "../assets/legs-img/Natural Glute Ham Raise.gif";
+import GluteHamRaise from "../assets/legs-img/Glute ham raise-.gif";
+import SnatchDeadlift from "../assets/legs-img/Snatch Deadlift.gif";
+
+// lats-exercises.js
+import WeightedPullUp from "../assets/lats-img/Weighted pull-up.gif";
+import Pullups from "../assets/lats-img/Pullups.gif";
+import RockyPullUpsPulldowns from "../assets/lats-img/Rocky Pull-Ups.Pulldowns.gif";
+import CloseGripPullDown from "../assets/lats-img/Close-grip pull-down.gif";
+import PullUp from "../assets/lats-img/Pull-up.gif";
+import MuscleUp from "../assets/lats-img/Muscle Up.gif";
+import ShotgunRow from "../assets/lats-img/Shotgun row.gif";
+import CloseGripFrontLatPulldown from "../assets/lats-img/Close-Grip Front Lat Pulldown.gif";
+import VBarPullUp from "../assets/lats-img/V-bar pull-up.gif";
+import RopeClimb from "../assets/lats-img/Rope climb.gif";
 // chest-img
 const chestImgFiles = [
   DumbbellBenchPress,
@@ -234,6 +257,45 @@ const exercisesImgFiles = [
   InclineDumbbellRow,
 ];
 export const backImg = exercisesImgFiles.map((filename, index) => ({
+  id: index + 1,
+  filename,
+}));
+//legs
+const legsImgFiles = [
+  BarbellDeadlift,
+  RomanianDeadliftWithDumbbells,
+  CleanDeadlift,
+  SumoDeadlift,
+  RomanianDeadliftFromDeficit,
+  PowerSnatch,
+  PowerCleanFromBlocks,
+  NaturalGluteHamRaise,
+  GluteHamRaise,
+  SnatchDeadlift,
+];
+
+// Create an array of exercise objects with id and filename
+export const legsImg = legsImgFiles.map((filename, index) => ({
+  id: index + 1,
+  filename,
+}));
+
+// Lats exercise filenames array
+const latsImgFiles = [
+  WeightedPullUp,
+  Pullups,
+  RockyPullUpsPulldowns,
+  CloseGripPullDown,
+  PullUp,
+  MuscleUp,
+  ShotgunRow,
+  CloseGripFrontLatPulldown,
+  VBarPullUp,
+  RopeClimb,
+];
+
+// Create an array of exercise objects with id and filename
+export const latsImg = latsImgFiles.map((filename, index) => ({
   id: index + 1,
   filename,
 }));

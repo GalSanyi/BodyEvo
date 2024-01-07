@@ -11,7 +11,7 @@ const SnackPage = lazy(() => import("../pages/SnackPage"));
 const LunchPage = lazy(() => import("../pages/LunchPage"));
 const DinnerPage = lazy(() => import("../pages/DinnerPage"));
 const ChestPage = lazy(() => import("../pages/Chest"));
-const ShoulderPage = lazy(() => import("../pages/Shoulder"));
+const LatsPage = lazy(() => import("../pages/Lats"));
 const BicepsPage = lazy(() => import("../pages/Biceps"));
 const TricepsPage = lazy(() => import("../pages/Tricrps"));
 const LegsPage = lazy(() => import("../pages/Legs"));
@@ -20,6 +20,7 @@ const CalvesPage = lazy(() => import("../pages/Calves"));
 const GlutesPage = lazy(() => import("../pages/Glute"));
 const AbsPage = lazy(() => import("../pages/Abs"));
 const ForearmPage = lazy(() => import("../pages/Forearm"));
+const SuccessStoryDetails = lazy(() => import("../pages/SuccesSroriesDitails"));
 
 const Routers = () => {
   return (
@@ -117,10 +118,10 @@ const Routers = () => {
         }
       />
       <Route
-        path="/exercise/shoulder"
+        path="/exercise/lats"
         element={
           <Suspense fallback={<div>Loading...</div>}>
-            <ShoulderPage />
+            <LatsPage />
           </Suspense>
         }
       />
@@ -185,6 +186,14 @@ const Routers = () => {
         element={
           <Suspense fallback={<div>Loading...</div>}>
             <ForearmPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/success-story/:id"
+        element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <SuccessStoryDetails />
           </Suspense>
         }
       />

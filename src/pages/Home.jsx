@@ -4,6 +4,7 @@ import FoodList from "../service/FoodList";
 import "../style/home.css";
 import Subtitle from "../shared/Subtitle";
 import ExerciseList from "../service/ExerciseList";
+import SuccessStories from "../service/SuccessStories";
 const Home = () => {
   return (
     <>
@@ -25,11 +26,23 @@ const Home = () => {
       <section className="exersices" id="exercise">
         <Container>
           <Row>
+            <Subtitle subtitle={"Exercises :"} />
             <ExerciseList />
           </Row>
         </Container>
       </section>
       {/* ================Exersice section end ==================== */}
+
+      {/* ================ success stories start========================= */}
+      <section>
+        <Container>
+          <Row>
+            <Subtitle subtitle={"Success stories :"} />
+            <SuccessStories />
+          </Row>
+        </Container>
+      </section>
+      {/* ================ success stories end========================= */}
     </>
   );
 };
