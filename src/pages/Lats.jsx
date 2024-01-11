@@ -20,7 +20,7 @@ const Lats = () => {
     const fetchExercises = async () => {
       try {
         const response = await getLats();
-        console.log(response);
+     
         setExercise(response);
       } catch (error) {
         console.error("Error fetching data:", error.message);

@@ -19,7 +19,7 @@ const Biceps = () => {
     const fetchExercises = async () => {
       try {
         const response = await getBiceps();
-        console.log(response);
+
         setExercise(response);
       } catch (error) {
         console.error("Error fetching data:", error.message);

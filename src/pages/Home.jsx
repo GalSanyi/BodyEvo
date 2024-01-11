@@ -5,6 +5,7 @@ import "../style/home.css";
 import Subtitle from "../shared/Subtitle";
 import ExerciseList from "../service/ExerciseList";
 import SuccessStories from "../service/SuccessStories";
+
 const Home = () => {
   return (
     <>

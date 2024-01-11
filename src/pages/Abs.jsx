@@ -20,10 +20,10 @@ const Abs = () => {
     const fetchExercises = async () => {
       try {
         const response = await getAbs();
-        console.log(response);
+
         setExercise(response);
       } catch (error) {
-        console.error("Error fetching data:", error.message);
+        console.error("Error fetching data:", error);
         toast.error("An error occurred while fetching data", {
           position: "top-right",
           autoClose: 5000,

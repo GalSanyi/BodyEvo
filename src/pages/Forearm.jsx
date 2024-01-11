@@ -19,7 +19,6 @@ const Forearm = () => {
     const fetchExercises = async () => {
       try {
         const response = await getForearm();
-        console.log(response);
         setExercise(response);
       } catch (error) {
         console.error("Error fetching data:", error.message);
